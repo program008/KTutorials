@@ -5,11 +5,12 @@ package basics
  * kotlin 基本类型基
  */
 fun main(args: Array<String>) {
-
+    method01()
 }
 
 /**
  * 数字
+ * kotlin 不支持八进制
  */
 fun method01(){
     //你可以使用下划线使数字常量更易读：
@@ -19,5 +20,6 @@ fun method01(){
     val hexBytes = 0xFF_EC_DE_5E
     val bytes = 0b11010010_01101001_10010100_10010010
 
-
+    print("${oneMillion},\n${creditCardNumber},\n${socialSecurityNumber},\n${hexBytes},\n${bytes}")
+    println()
 }

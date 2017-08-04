@@ -5,7 +5,7 @@ package basics
  * kotlin 基本类型基
  */
 fun main(args: Array<String>) {
-    method05()
+    method08()
 }
 
 /**
@@ -140,6 +140,87 @@ fun method06(){
      */
 }
 
+/**
+ * 数组
+ */
+fun method07(){
+    //数组的定义
+    //1.制定长度
+    val fixedSizeArray = arrayOfNulls<Int>(5)
 
+    //2.使用封装操作
+    val array = arrayOf(1,3,4,2,5)
+    val intArray = intArrayOf(1,3,4,3,4)
+    val booleanArray = booleanArrayOf(false,true,false,true,true)
+    //.....
+
+    //3.使用闭包进行初始化
+    val asc = Array(5,{i->i*2})
+
+    //空数组
+    val empty = emptyArray<Int>()//length is 0,empty array
+
+    //修改数组元素
+    fixedSizeArray.set(0,25)
+    asc[0] = 50
+
+    //访问数组元素
+    println(fixedSizeArray[0])
+    println(array[3])
+    println(intArray.get(2))
+    println(booleanArray.get(3))
+    println(asc[0])
+    // println(empty[1])//Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 1
+
+    //遍历数组元素
+
+    for (i in asc){
+        print("$i ")
+    }
+    println()
+    //遍历数组下标
+    for (i in booleanArray.indices){
+        println("$i-->${booleanArray[i]}")
+    }
+
+    //检查下标
+    val i:Int = 5
+    if (i in asc.indices) { // i>=0 && i<asc.size()
+        println("indices:$i")
+    }
+
+    //注意: 与 Java 不同的是，Kotlin 中数组是不型变的（invariant）。
+    // 这意味着 Kotlin 不让我们把 Array<String> 赋值给 Array<Any>，
+    // 以防止可能的运行时失败（但是你可以使用 Array<out Any>, 参见类型投影）。
+}
+
+/**
+ * 字符串
+ */
+fun method08(){
+    val s = "Hello, world!\n"
+
+    val text = """
+    for (c in "foo")
+        print(c)
+     """
+
+    val text2 = """
+    |Tell me and I forget.
+    |Teach me and I remember.
+    |Involve me and I learn.
+    |(Benjamin Franklin)
+    """.trimMargin()
+
+    val price = """
+    ${'$'}9.99
+    """
+
+    println(s)
+    println(text.trim())
+    println(text2.trimMargin())
+    println(price.trim())
+
+}
 
 
